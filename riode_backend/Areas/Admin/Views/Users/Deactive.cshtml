@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Deactive";
+}
+
+@model AppUser
+
+<div class="content-wrapper">
+    <div class="row d-flex">
+        <div class="col-lg-6 ">
+            <div class="card" style="width: fit-content;">
+                <div class="card-body">
+                    
+                    <h2 class="card-title">Username: @Model.UserName</h2>
+                    @if (Model.IsActive)
+                    {
+                        <p class="text-danger">This action will deactivate this person's account!</p>
+
+                    }
+                    else
+                    {
+                        <p class="text-success">This action will activate this person's account!</p>
+                    }
+             
+
+                    <form method="post">
+                        @if (Model.IsActive)
+                        {
+                            <button type="submit" class="btn btn-danger">Deactive</button>
+
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-success">Active</button>
+                        }
+
+                        <a asp-action="Index" class="btn btn-primary">Go Back</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
